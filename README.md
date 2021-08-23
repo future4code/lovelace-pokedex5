@@ -1,9 +1,9 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Ingrid Erci Flack da Silva 
+- Caíque Souto Lima
+- Israel Martins Cordeiro 
 
 Link do Surge: www.link.com.br
 
