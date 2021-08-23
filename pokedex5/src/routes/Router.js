@@ -1,27 +1,27 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom"
-import Home from "../pages/HomePage"
-import Pokedex from "../pages/PokedexPage"
-import Detail from '../pages/DetailPage'
-import Error from "../pages/ErrorPage"
+import HomePage from "../pages/HomePage"
+import PokedexPage from "../pages/PokedexPage"
+import DetailPage from '../pages/DetailPage'
+import ErrorPage from "../pages/ErroPage"
 
 function Router() {
     return (
         <BrowserRouter>
             <Switch>
                 <Route exact path='/'>
-                    <Home />
+                    <HomePage />
                 </Route>
 
                 <Route exact path='/pokedex'>
-                    <Pokedex />
+                    <PokedexPage />
                 </Route>
 
                 <Route exact path='/details/:id'>
-                    <Detail />
+                    <DetailPage />
                 </Route>
 
                 <Route exact path=''>
-                    <Error />
+                    <ErrorPage />
                 </Route>
             </Switch>
         </BrowserRouter>

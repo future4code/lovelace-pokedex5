@@ -1,4 +1,4 @@
-function Error() {
+function ErrorPage() {
     return(
         <div>
             <h1>Error</h1>
@@ -6,4 +6,4 @@ function Error() {
     )
 }
 
-export default Error
+export default ErrorPage
