@@ -64,4 +64,5 @@ export const Details = styled(Link)`
 `;
 export const Name = styled.p`
   font-size: 20px;
+  text-transform: capitalize;
 `;
