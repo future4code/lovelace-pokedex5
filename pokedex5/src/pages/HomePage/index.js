@@ -1,9 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Card from "../../components/Card";
 import Header from "../../components/Header";
-import { Button, PokeIcon } from "../../components/Header/styles";
 import { Container, PokemonList } from "./styles";
 
 function HomePage() {
@@ -29,15 +27,7 @@ function HomePage() {
 
   return (
     <Container>
-      <Header
-        title="Lista de Pokémon"
-        button={
-          <Button as={Link} to="/pokedex">
-            <PokeIcon />
-            Ir para pokedex
-          </Button>
-        }
-      />
+      <Header title="Lista de Pokémon" />
       <PokemonList>{renderPokemonList()}</PokemonList>
     </Container>
   );

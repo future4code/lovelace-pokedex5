@@ -1,22 +1,25 @@
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-import { CgPokemon } from "react-icons/cg";
+import { CgPokemon, CgPlayListSearch } from "react-icons/cg";
 
-
-
-export const Container = styled.div `
+export const Container = styled.div`
   background-color: #d14629;
   padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-`
-export const Logo = styled.img `
-    width: 150px;
-    height: 55px;
-`
-export const Button = styled(Link) `
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  gap: 20px;
+`;
+export const Logo = styled.img`
+  width: 150px;
+  height: 55px;
+`;
+export const Button = styled(Link)`
   text-decoration: none;
   color: #2b71b8;
   background-color: #f7c601;
@@ -33,14 +36,20 @@ export const Button = styled(Link) `
   &:hover {
     transform: scale(1.1);
     background-color: #d8b00d;
-
   }
-`
-export const PokeIcon = styled(CgPokemon) `
+`;
+export const PokeIcon = styled(CgPokemon)`
   font-size: 20px;
   margin-right: 10px;
-`
-export const Title = styled.h1 `
+`;
+
+export const ListIcon = styled(CgPlayListSearch)`
+  font-size: 20px;
+  margin-right: 10px;
+`;
+
+export const Title = styled.h1`
   margin: 0;
   color: #f7c601;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);`
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+`;
