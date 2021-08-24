@@ -21,8 +21,6 @@ function HomePage() {
       });
   }, []);
 
-  console.log(pokemon);
-
   const renderPokemonList = () => {
     return pokemon.map((pokemon) => {
       return <Card url={pokemon.url} name={pokemon.name} />;
