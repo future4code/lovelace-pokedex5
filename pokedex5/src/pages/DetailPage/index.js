@@ -1,9 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import CardDetail from "../../components/CardDetail";
 import Header from "../../components/Header";
-import { Button, PokeIcon } from "../../components/Header/styles";
 
 import { DetailsContainer } from "./styles";
 
@@ -41,15 +40,7 @@ function DetailPage() {
 
   return (
     <div>
-      <Header
-        title="Detalhes"
-        button={
-          <Button as={Link} to="/pokedex">
-            <PokeIcon />
-            Ir para pokedex
-          </Button>
-        }
-      />
+      <Header title="Detalhes" />
       <DetailsContainer>{renderDetails()}</DetailsContainer>
     </div>
   );
