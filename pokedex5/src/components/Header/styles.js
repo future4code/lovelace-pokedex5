@@ -9,15 +9,29 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 export const Logo = styled.img`
   width: 150px;
   height: 55px;
+
+  @media (max-width: 768px) {
+    width: 120px;
+    height: auto;
+  }
 `;
 export const Button = styled(Link)`
   text-decoration: none;
@@ -52,4 +66,9 @@ export const Title = styled.h1`
   margin: 0;
   color: #f7c601;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    font-size: 25px;
+    margin: 20px 0;
+  }
 `;
