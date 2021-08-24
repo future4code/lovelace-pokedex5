@@ -18,6 +18,7 @@ export const ImagesContainer = styled.div`
 `;
 export const Name = styled.h2`
   color: #2b71b8;
+  text-transform: capitalize;
 `;
 export const FrontImage = styled.img``;
 
@@ -35,7 +36,9 @@ export const PowerContainer = styled.div`
 export const TitleContainer = styled.h2`
   color: #2b71b8;
 `;
-export const PowerDetails = styled.div``;
+export const PowerDetails = styled.div`
+text-transform: capitalize;
+`;
 
 export const TypeContainer = styled.div`
   display: flex;
@@ -46,7 +49,9 @@ export const TypeContainer = styled.div`
   border-right: 1px solid #2b71b8;
   min-height: 250px;
 `;
-export const Types = styled.div``;
+export const Types = styled.div`
+text-transform: capitalize;
+`;
 
 export const AttackContainer = styled.div`
   display: flex;
@@ -56,4 +61,6 @@ export const AttackContainer = styled.div`
   gap: 20px;
   min-height: 250px;
 `;
-export const Attacks = styled.div``;
+export const Attacks = styled.div`
+text-transform: capitalize;
+`;
