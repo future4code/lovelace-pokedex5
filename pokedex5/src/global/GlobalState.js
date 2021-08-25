@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import GlobalContext from "./GlobalContext";
-import { baseURL } from '../constants';
+import { baseURL } from '../constants/BaseUrl';
 
 
 const GlobalState = (props) => {
