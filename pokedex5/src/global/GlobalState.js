@@ -12,7 +12,7 @@ const GlobalState = (props) => {
 
   const getPokemonList = () => {
     axios
-      .get(`${baseURL}`)
+      .get(`${baseURL}?offset=${offset}&limit=${limit}`)
       .then((res) => {
         console.log("foi", res.data);
         setPokemon(res.data.results);
