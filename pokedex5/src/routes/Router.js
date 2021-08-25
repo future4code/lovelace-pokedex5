@@ -1,8 +1,8 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom"
-import HomePage from "../pages/HomePage"
-import PokedexPage from "../pages/PokedexPage"
-import DetailPage from '../pages/DetailPage'
-import ErrorPage from "../pages/ErroPage"
+import HomePage from "../pages/HomePage/HomePage"
+import PokedexPage from "../pages/PokedexPage/PokedexPage"
+import DetailPage from '../pages/DetailPage/DetailPage'
+import ErrorPage from "../pages/ErroPage/ErrorPage"
 
 function Router() {
     return (

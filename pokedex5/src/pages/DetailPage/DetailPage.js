@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import CardDetail from "../../components/CardDetail";
-import Header from "../../components/Header";
+import CardDetail from "../../components/CardDetail/CardDetail";
+import Header from "../../components/Header/Header";
 import GlobalContext from "../../global/GlobalContext";
 
 import { DetailsContainer } from "./styles";

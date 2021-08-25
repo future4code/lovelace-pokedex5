@@ -1,17 +1,7 @@
 import Router from "./routes/Router";
-import { useContext, useEffect } from "react";
 import { createGlobalStyle } from "styled-components";
-import GlobalContext from "./global/GlobalContext";
 
 function App() {
-  const {
-    requests: { getPokemonList },
-  } = useContext(GlobalContext);
-
-  useEffect(() => {
-    getPokemonList();
-  }, []);
-
   return (
     <>
       <GlobalStyle />

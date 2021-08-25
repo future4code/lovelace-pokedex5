@@ -2,13 +2,16 @@ import axios from "axios";
 import React, { useState } from "react";
 import GlobalContext from "./GlobalContext";
 
+
 const GlobalState = (props) => {
   const [pokemon, setPokemon] = useState([]);
   const [details, setDetails] = useState();
+  const [limit, setLimit] = useState(30)
+  const [offset, setOffset] = useState(0)
 
   const getPokemonList = () => {
     axios
-      .get("https://pokeapi.co/api/v2/pokemon/")
+      .get(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
       .then((res) => {
         console.log("foi", res.data);
         setPokemon(res.data.results);
@@ -30,12 +33,12 @@ const GlobalState = (props) => {
       });
   };
 
-  const state = { pokemon, details };
-  const setters = { setPokemon, setDetails };
+  const states = { pokemon, details, limit, offset };
+  const setters = { setPokemon, setDetails, setLimit, setOffset };
   const requests = { getPokemonList, getPokemonDetail };
 
   return (
-    <GlobalContext.Provider value={{ state, setters, requests }}>
+    <GlobalContext.Provider value={{ states, setters, requests }}>
       {props.children}
     </GlobalContext.Provider>
   );
