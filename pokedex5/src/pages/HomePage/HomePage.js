@@ -6,7 +6,7 @@ import { Container, PokemonList } from "./styles";
 import Pagination from "../../components/Pagination/Pagination";
 
 function HomePage() {
-  const { states, setters, requests } = useContext(GlobalContext);
+  const { states, requests } = useContext(GlobalContext);
 
   useEffect(() => {
     requests.getPokemonList();
