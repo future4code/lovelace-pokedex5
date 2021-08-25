@@ -1,16 +1,21 @@
+import GlobalContext from '../../global/GlobalContext'
+import { useContext } from 'react'
 import { Container } from './styles'
 
 const maxItems = 5
 const maxLeft = (maxItems - 1) / 2
 
-const Pagination = ({ limit, total, offset, setOffset }) => {
+const Pagination = () => {
 
-    const currentPage = offset ? (offset / limit) + 1 : 1
-    const pages = Math.ceil(total / limit)
+    const { states, setters } = useContext(GlobalContext)
+
+    const total = 898
+    const currentPage = states.offset ? (states.offset / states.limit) + 1 : 1
+    const pages = Math.ceil(total / states.limit)
     const firstPage = Math.max(currentPage - maxLeft, 1)
 
     const onPageChange = (page) => {
-        setOffset((page - 1) * limit)
+        setters.setOffset((page - 1) * states.limit)
     }
 
     return (

@@ -24,7 +24,7 @@ function HomePage() {
     <Container>
       <Header title="Lista de Pokémon" />
       <PokemonList>{renderPokemonList()}</PokemonList>
-      <Pagination limit={states.limit} total={898} offset={states.offset} setOffset={setters.setOffset} />
+      <Pagination />
     </Container>
   );
 }
