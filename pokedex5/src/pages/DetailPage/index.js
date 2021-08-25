@@ -1,39 +1,35 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CardDetail from "../../components/CardDetail";
 import Header from "../../components/Header";
+import GlobalContext from "../../global/GlobalContext";
 
 import { DetailsContainer } from "./styles";
 
 function DetailPage() {
-  const [details, setDetails] = useState();
+  const {
+    state,
+    requests: { getPokemonDetail },
+  } = useContext(GlobalContext);
+
   const { id } = useParams();
 
   useEffect(() => {
-    axios
-      .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
-      .then((res) => {
-        console.log("foi", res.data);
-        setDetails(res.data);
-      })
-      .catch((error) => {
-        console.log("não foi", error);
-      });
+    getPokemonDetail(id);
   }, [id]);
 
   const renderDetails = () => {
-    if (!details) return null;
+    if (!state.details) return null;
 
     return (
       <CardDetail
         url={"url"}
-        name={details.name}
-        backImage={details.sprites?.back_default}
-        frontImage={details.sprites?.front_default}
-        stats={details.stats}
-        types={details.types}
-        abilities={details.abilities}
+        name={state.details.name}
+        backImage={state.details.sprites?.back_default}
+        frontImage={state.details.sprites?.front_default}
+        stats={state.details.stats}
+        types={state.details.types}
+        abilities={state.details.abilities}
       />
     );
   };

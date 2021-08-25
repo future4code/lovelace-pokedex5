@@ -1,21 +1,31 @@
-import { createGlobalStyle } from "styled-components"
-import Router from "./routes/Router"
+import Router from "./routes/Router";
+import { useContext, useEffect } from "react";
+import { createGlobalStyle } from "styled-components";
+import GlobalContext from "./global/GlobalContext";
 
 function App() {
+  const {
+    requests: { getPokemonList },
+  } = useContext(GlobalContext);
+
+  useEffect(() => {
+    getPokemonList();
+  }, []);
+
   return (
-    <div>
-      <GlobalStyle/>
+    <>
+      <GlobalStyle />
       <Router />
-    </div>
-  )
+    </>
+  );
 }
 
-const GlobalStyle = createGlobalStyle `
+const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     font-family: 'Nunito', sans-serif;;
   }
-`
-export default App
+`;
+export default App;
