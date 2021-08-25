@@ -42,6 +42,16 @@ export const Button = styled.button`
     transform: scale(1.1);
     background-color: #d8b00d;
   }
+
+  &:disabled {
+    cursor: default;
+    background-color: #abaaa8;
+
+    &:hover {
+      transform: scale(1);
+      background-color: #abaaa8;
+    }
+  }
 `;
 export const Details = styled(Link)`
   padding: 10px 30px;

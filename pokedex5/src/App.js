@@ -1,11 +1,14 @@
 import Router from "./routes/Router";
 import { createGlobalStyle } from "styled-components";
 
+import { ToastContainer } from "react-toastify";
+
 function App() {
   return (
     <>
       <GlobalStyle />
       <Router />
+      <ToastContainer position="bottom-right" />
     </>
   );
 }
