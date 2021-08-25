@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import GlobalContext from "../../global/GlobalContext";
+import { useContext } from "react";
 
 import {
   Container,
@@ -12,8 +14,9 @@ import {
   Plus,
 } from "./styles";
 
-function Card({ name, url }) {
+function Card({ name, url, pokemon }) {
   const [, id] = url.match(/pokemon\/(\d+)\//i);
+  const { states, setters } = useContext(GlobalContext);
 
   return (
     <Container>
@@ -22,7 +25,7 @@ function Card({ name, url }) {
       />
       <Name>{name}</Name>
       <ButtonContainer>
-        <Button>
+        <Button onClick={() => setters.addToPokedex(pokemon)}>
           <Add />
           Adicionar
         </Button>

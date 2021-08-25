@@ -14,11 +14,9 @@ function HomePage() {
 
   const renderPokemonList = () => {
     return states.pokemon?.map((pokemon) => {
-      return <Card key={pokemon.name} url={pokemon.url} name={pokemon.name} />;
+      return <Card key={pokemon.name} url={pokemon.url} name={pokemon.name} pokemon={pokemon}/>;
     });
   };
-
-  console.log(states.offset)
 
   return (
     <Container>

@@ -9,6 +9,35 @@ const GlobalState = (props) => {
   const [details, setDetails] = useState();
   const [limit, setLimit] = useState(30)
   const [offset, setOffset] = useState(0)
+  const [pokedex, setPokedex] = useState([])
+  
+  const addToPokedex = (pokemon) =>{
+    const isPokemonAlreadyInPokedex = pokedex.some((pokemonInPokedex) =>{
+      if (pokemonInPokedex.name === pokemon.name) {
+        return true
+      } else {
+        return false
+      }
+    })
+
+    if (!isPokemonAlreadyInPokedex) {
+      setPokedex([...pokedex, pokemon])
+    }
+    
+  }
+
+   
+  const removeFromPokedex = (pokemon) =>{
+    const newPokedex = pokedex.filter(pokemonInPokedex =>{
+      if (pokemonInPokedex.name === pokemon.name) {
+        return false
+      } else {
+        return true
+      }
+    })  
+    setPokedex(newPokedex)
+  }
+
 
   const getPokemonList = () => {
     axios
@@ -34,8 +63,8 @@ const GlobalState = (props) => {
       });
   };
 
-  const states = { pokemon, details, limit, offset };
-  const setters = { setPokemon, setDetails, setLimit, setOffset };
+  const states = { pokemon, details, limit, offset, pokedex };
+  const setters = { setPokemon, setDetails, setLimit, setOffset, setPokedex, addToPokedex, removeFromPokedex};
   const requests = { getPokemonList, getPokemonDetail };
 
   return (
