@@ -12,7 +12,9 @@ const Pagination = () => {
     const total = 898
     const currentPage = states.offset ? (states.offset / states.limit) + 1 : 1
     const pages = Math.ceil(total / states.limit)
-    const firstPage = Math.max(currentPage - maxLeft, 1)
+    const maxFirst = Math.max(pages - (maxItems - 1), 1);
+    const firstPage = Math.min(Math.max(currentPage - maxLeft, 1), maxFirst)
+
 
     const onPageChange = (page) => {
         setters.setOffset((page - 1) * states.limit)
