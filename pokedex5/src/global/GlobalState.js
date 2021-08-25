@@ -1,43 +1,37 @@
 import axios from "axios";
 import React, { useState } from "react";
 import GlobalContext from "./GlobalContext";
-import { baseURL } from '../constants/BaseUrl';
+import { baseURL } from "../constants/BaseUrl";
 
+import { toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const GlobalState = (props) => {
   const [pokemon, setPokemon] = useState([]);
   const [details, setDetails] = useState();
-  const [limit, setLimit] = useState(30)
-  const [offset, setOffset] = useState(0)
-  const [pokedex, setPokedex] = useState([])
-  
-  const addToPokedex = (pokemon) =>{
-    const isPokemonAlreadyInPokedex = pokedex.some((pokemonInPokedex) =>{
-      if (pokemonInPokedex.name === pokemon.name) {
-        return true
-      } else {
-        return false
-      }
-    })
+  const [limit, setLimit] = useState(30);
+  const [offset, setOffset] = useState(0);
+  const [pokedex, setPokedex] = useState([]);
+
+  const addToPokedex = (pokemon) => {
+    const isPokemonAlreadyInPokedex = pokedex.some((pokemonInPokedex) => {
+      return pokemonInPokedex.name === pokemon.name;
+    });
 
     if (!isPokemonAlreadyInPokedex) {
-      setPokedex([...pokedex, pokemon])
+      setPokedex([...pokedex, pokemon]);
+      toast.success("Pokemon adicionado com sucesso!");
     }
-    
-  }
+  };
 
-   
-  const removeFromPokedex = (pokemon) =>{
-    const newPokedex = pokedex.filter(pokemonInPokedex =>{
-      if (pokemonInPokedex.name === pokemon.name) {
-        return false
-      } else {
-        return true
-      }
-    })  
-    setPokedex(newPokedex)
-  }
-
+  const removeFromPokedex = (pokemon) => {
+    const newPokedex = pokedex.filter((pokemonInPokedex) => {
+      return pokemonInPokedex.name !== pokemon.name;
+    });
+    setPokedex(newPokedex);
+    toast.success("Pokemon removido com sucesso!");
+  };
 
   const getPokemonList = () => {
     axios
@@ -63,12 +57,20 @@ const GlobalState = (props) => {
       });
   };
 
-  const states = { pokemon, details, limit, offset, pokedex };
-  const setters = { setPokemon, setDetails, setLimit, setOffset, setPokedex, addToPokedex, removeFromPokedex};
+  const state = { pokemon, details, limit, offset, pokedex };
+  const setters = {
+    setPokemon,
+    setDetails,
+    setLimit,
+    setOffset,
+    setPokedex,
+    addToPokedex,
+    removeFromPokedex,
+  };
   const requests = { getPokemonList, getPokemonDetail };
 
   return (
-    <GlobalContext.Provider value={{ states, setters, requests }}>
+    <GlobalContext.Provider value={{ state, setters, requests }}>
       {props.children}
     </GlobalContext.Provider>
   );

@@ -8,7 +8,7 @@ import { DetailsContainer } from "./styles";
 
 function DetailPage() {
   const {
-    states,
+    state,
     requests: { getPokemonDetail },
   } = useContext(GlobalContext);
 
@@ -19,17 +19,17 @@ function DetailPage() {
   }, [id]);
 
   const renderDetails = () => {
-    if (!states.details) return null;
+    if (!state.details) return null;
 
     return (
       <CardDetail
         url={"url"}
-        name={states.details.name}
-        backImage={states.details.sprites?.back_default}
-        frontImage={states.details.sprites?.front_default}
-        stats={states.details.stats}
-        types={states.details.types}
-        abilities={states.details.abilities}
+        name={state.details.name}
+        backImage={state.details.sprites?.back_default}
+        frontImage={state.details.sprites?.front_default}
+        stats={state.details.stats}
+        types={state.details.types}
+        abilities={state.details.abilities}
       />
     );
   };
@@ -40,6 +40,6 @@ function DetailPage() {
       <DetailsContainer>{renderDetails()}</DetailsContainer>
     </div>
   );
-};
+}
 
 export default DetailPage;

@@ -13,19 +13,27 @@ import {
   Add,
   Plus,
 } from "./styles";
+import { ImageContainer } from "../CardPokedex/styles";
 
 function Card({ name, url, pokemon }) {
   const [, id] = url.match(/pokemon\/(\d+)\//i);
-  const { states, setters } = useContext(GlobalContext);
+  const { setters, state } = useContext(GlobalContext);
+
+  const isDisabled = state.pokedex.some((p) => p.name === name);
 
   return (
     <Container>
-      <Image
-        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`}
-      />
+      <ImageContainer>
+        <Image
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`}
+        />
+      </ImageContainer>
       <Name>{name}</Name>
       <ButtonContainer>
-        <Button onClick={() => setters.addToPokedex(pokemon)}>
+        <Button
+          disabled={isDisabled}
+          onClick={() => setters.addToPokedex(pokemon)}
+        >
           <Add />
           Adicionar
         </Button>

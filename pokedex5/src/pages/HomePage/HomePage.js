@@ -6,15 +6,22 @@ import { Container, PokemonList } from "./styles";
 import Pagination from "../../components/Pagination/Pagination";
 
 function HomePage() {
-  const { states, requests } = useContext(GlobalContext);
+  const { state, requests } = useContext(GlobalContext);
 
   useEffect(() => {
     requests.getPokemonList();
-  }, [states.offset]);
+  }, [state.offset]);
 
   const renderPokemonList = () => {
-    return states.pokemon?.map((pokemon) => {
-      return <Card key={pokemon.name} url={pokemon.url} name={pokemon.name} pokemon={pokemon}/>;
+    return state.pokemon?.map((pokemon) => {
+      return (
+        <Card
+          key={pokemon.name}
+          url={pokemon.url}
+          name={pokemon.name}
+          pokemon={pokemon}
+        />
+      );
     });
   };
 
