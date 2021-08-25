@@ -1,14 +1,14 @@
 import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import CardDetail from "../../components/CardDetail";
-import Header from "../../components/Header";
+import CardDetail from "../../components/CardDetail/CardDetail";
+import Header from "../../components/Header/Header";
 import GlobalContext from "../../global/GlobalContext";
 
 import { DetailsContainer } from "./styles";
 
 function DetailPage() {
   const {
-    state,
+    states,
     requests: { getPokemonDetail },
   } = useContext(GlobalContext);
 
@@ -19,17 +19,17 @@ function DetailPage() {
   }, [id]);
 
   const renderDetails = () => {
-    if (!state.details) return null;
+    if (!states.details) return null;
 
     return (
       <CardDetail
         url={"url"}
-        name={state.details.name}
-        backImage={state.details.sprites?.back_default}
-        frontImage={state.details.sprites?.front_default}
-        stats={state.details.stats}
-        types={state.details.types}
-        abilities={state.details.abilities}
+        name={states.details.name}
+        backImage={states.details.sprites?.back_default}
+        frontImage={states.details.sprites?.front_default}
+        stats={states.details.stats}
+        types={states.details.types}
+        abilities={states.details.abilities}
       />
     );
   };
@@ -40,6 +40,6 @@ function DetailPage() {
       <DetailsContainer>{renderDetails()}</DetailsContainer>
     </div>
   );
-}
+};
 
 export default DetailPage;
