@@ -22,19 +22,16 @@ const Pagination = () => {
     <Container>
       <ul>
         <li>
-          <button
-            onClick={() => onPageChange(1)}
-            disabled={currentPage === 1}
-          >
+          <button onClick={() => onPageChange(1)} disabled={currentPage === 1}>
             Primeira
           </button>
-          <button
-            onClick={() => onPageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-          >
-            Anterior
-          </button>
         </li>
+        <button
+          onClick={() => onPageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Anterior
+        </button>
         {Array.from({ length: Math.min(maxItems, pages) })
           .map((item, index) => index + firstPage)
           .map((page) => (
@@ -54,13 +51,13 @@ const Pagination = () => {
           >
             Próxima
           </button>
-          <button
-            onClick={() => onPageChange(pages)}
-            disabled={currentPage === pages}
-          >
-            Última
-          </button>
         </li>
+        <button
+          onClick={() => onPageChange(pages)}
+          disabled={currentPage === pages}
+        >
+          Última
+        </button>
       </ul>
     </Container>
   );
