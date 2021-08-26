@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import GlobalContext from "./GlobalContext";
 import { baseURL } from "../constants/BaseUrl";
 
@@ -13,6 +13,16 @@ const GlobalState = (props) => {
   const [limit, setLimit] = useState(30);
   const [offset, setOffset] = useState(0);
   const [pokedex, setPokedex] = useState([]);
+
+  useEffect(() => {
+        const localPokedex = localStorage.getItem('pokedex')
+        localPokedex && 
+        setPokedex(JSON.parse(localPokedex))
+      }, [])
+    
+      useEffect(() => {
+        localStorage.setItem('pokedex', JSON.stringify(pokedex))
+      }, [pokedex])
 
   const addToPokedex = (pokemon) => {
     const isPokemonAlreadyInPokedex = pokedex.some((pokemonInPokedex) => {
