@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Pokémon
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Desenvolvedores
 
-## Available Scripts
+- Ingrid Erci Flack da Silva
+- Caíque Souto Lima
+- Israel Martins Cordeiro
 
-In the project directory, you can run:
+### Link para acessar
 
-### `npm start`
+- https://pokemon-grupo5.surge.sh/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Tecnologias utilizadas
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- ReactJS
+- Styled Components
+- Axios
 
-### `npm test`
+### Funcionalidades
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- O usuário pode acessar uma lista de cards e visualizar 630 pokemon através de paginação.
 
-### `npm run build`
+- Cada card contém o nome e um GIF do respectivo pokemon.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Nos cards da tela inicial é possível adicionar o pokemon à pokedex ou visualizar uma tela com detalhes do pokemon.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Na tela de detalhes o usuário pode visualizar o nome, fotos de frente e de costas do pokemon, os poderes (hp, attack, defense, special-attack, special-defense e speed), qual é o tipo e as habilidades.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Na página de pokedex, o usuário pode ver os pokemon que foram adicionados à sua pokedex.
 
-### `npm run eject`
+- Todas as páginas tem botões que redirecionam tanto para a lista de pokemon quanto para a pokedex.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Os dados da pokedex ficam salvos no localStorage.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- O projeto é 100% responsivo para tablets e smartphones.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Status do projeto
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Concluído
 
-## Learn More
+### Imagens
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Tela - Lista de pokemon
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Tela - Detalhes
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Tela - Pokedex
