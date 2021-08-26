@@ -23,6 +23,12 @@ const Pagination = () => {
       <ul>
         <li>
           <button
+            onClick={() => onPageChange(1)}
+            disabled={currentPage === 1}
+          >
+            Primeira
+          </button>
+          <button
             onClick={() => onPageChange(currentPage - 1)}
             disabled={currentPage === 1}
           >
@@ -47,6 +53,12 @@ const Pagination = () => {
             disabled={currentPage === pages}
           >
             Próxima
+          </button>
+          <button
+            onClick={() => onPageChange(pages)}
+            disabled={currentPage === pages}
+          >
+            Última
           </button>
         </li>
       </ul>
