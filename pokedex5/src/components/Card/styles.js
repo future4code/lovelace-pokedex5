@@ -38,15 +38,16 @@ export const Button = styled.button`
   justify-content: center;
   transition: transform 0.15s, background-color 0.15s ease;
   cursor: pointer;
+
   &:hover {
     transform: scale(1.1);
     background-color: #d8b00d;
   }
 
   &:disabled {
+    color: #000;
     cursor: default;
     background-color: #abaaa8;
-    color: #000;
 
     &:hover {
       transform: scale(1);
