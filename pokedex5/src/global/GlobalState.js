@@ -31,7 +31,7 @@ const GlobalState = (props) => {
 
     if (!isPokemonAlreadyInPokedex) {
       setPokedex([...pokedex, pokemon]);
-      toast.success("Pokemon adicionado com sucesso!");
+      toast.success("Pokémon adicionado com sucesso!");
     }
   };
 
@@ -40,14 +40,13 @@ const GlobalState = (props) => {
       return pokemonInPokedex.name !== pokemon.name;
     });
     setPokedex(newPokedex);
-    toast.success("Pokemon removido com sucesso!");
+    toast.success("Pokémon removido com sucesso!");
   };
 
   const getPokemonList = () => {
     axios
       .get(`${baseURL}?offset=${offset}&limit=${limit}`)
       .then((res) => {
-        console.log("foi", res.data);
         setPokemon(res.data.results);
       })
       .catch((error) => {

@@ -1,7 +1,10 @@
+import Header from "../../components/Header/Header";
+
 function ErrorPage() {
     return(
         <div>
-            <h1>Error</h1>
+            <Header />
+            <h1>Erro, página não encontrada :(</h1>
         </div>
     )
 }
