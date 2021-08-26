@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import GlobalContext from "./GlobalContext";
 import { baseURL } from "../constants/BaseUrl";
 
@@ -14,6 +14,16 @@ const GlobalState = (props) => {
   const [offset, setOffset] = useState(0);
   const [pokedex, setPokedex] = useState([]);
 
+  useEffect(() => {
+        const localPokedex = localStorage.getItem('pokedex')
+        localPokedex && 
+        setPokedex(JSON.parse(localPokedex))
+      }, [])
+    
+      useEffect(() => {
+        localStorage.setItem('pokedex', JSON.stringify(pokedex))
+      }, [pokedex])
+
   const addToPokedex = (pokemon) => {
     const isPokemonAlreadyInPokedex = pokedex.some((pokemonInPokedex) => {
       return pokemonInPokedex.name === pokemon.name;
@@ -21,7 +31,7 @@ const GlobalState = (props) => {
 
     if (!isPokemonAlreadyInPokedex) {
       setPokedex([...pokedex, pokemon]);
-      toast.success("Pokemon adicionado com sucesso!");
+      toast.success("Pokémon adicionado com sucesso!");
     }
   };
 
@@ -30,14 +40,13 @@ const GlobalState = (props) => {
       return pokemonInPokedex.name !== pokemon.name;
     });
     setPokedex(newPokedex);
-    toast.success("Pokemon removido com sucesso!");
+    toast.success("Pokémon removido com sucesso!");
   };
 
   const getPokemonList = () => {
     axios
       .get(`${baseURL}?offset=${offset}&limit=${limit}`)
       .then((res) => {
-        console.log("foi", res.data);
         setPokemon(res.data.results);
       })
       .catch((error) => {
