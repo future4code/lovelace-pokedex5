@@ -46,6 +46,7 @@ export const Button = styled.button`
   &:disabled {
     cursor: default;
     background-color: #abaaa8;
+    color: #000;
 
     &:hover {
       transform: scale(1);
