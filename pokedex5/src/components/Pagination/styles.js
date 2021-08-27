@@ -1,30 +1,10 @@
 import styled from "styled-components";
+import { Button as CardButton } from "../Card/styles";
 
 export const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-
-  button {
-    padding: 5px 20px;
-    margin-bottom: 20px;
-
-    color: #2b71b8;
-    background-color: #f7c601;
-    border-radius: 20px;
-    border: none;
-    font-size: 14px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    transition: transform 0.15s, background-color 0.15s ease;
-    cursor: pointer;
-
-    &:hover {
-      cursor: pointer;
-      background-color: #d8b00d;
-    }
-  }
 
   > ul {
     display: flex;
@@ -35,5 +15,21 @@ export const Container = styled.div`
     > li + li {
       margin-left: 10px;
     }
+
+    @media (max-width: 767px) {
+      > li {
+        display: none;
+
+        &.next,
+        &.previous {
+          display: block;
+        }
+      }
+    }
   }
+`;
+
+export const Button = styled(CardButton)`
+  padding: 5px 20px;
+  margin-bottom: 20px;
 `;

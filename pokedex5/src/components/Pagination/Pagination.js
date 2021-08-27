@@ -1,6 +1,6 @@
 import GlobalContext from "../../global/GlobalContext";
 import { useContext } from "react";
-import { Container } from "./styles";
+import { Container, Button } from "./styles";
 
 const maxItems = 5;
 const maxLeft = (maxItems - 1) / 2;
@@ -18,46 +18,52 @@ const Pagination = () => {
     setters.setOffset((page - 1) * state.limit);
   };
 
+  console.log(currentPage);
+
   return (
     <Container>
       <ul>
         <li>
-          <button onClick={() => onPageChange(1)} disabled={currentPage === 1}>
+          <Button onClick={() => onPageChange(1)} disabled={currentPage === 1}>
             Primeira
-          </button>
+          </Button>
         </li>
-        <button
-          onClick={() => onPageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          Anterior
-        </button>
+        <li className="previous">
+          <Button
+            onClick={() => onPageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Anterior
+          </Button>
+        </li>
         {Array.from({ length: Math.min(maxItems, pages) })
           .map((item, index) => index + firstPage)
           .map((page) => (
             <li key={page}>
-              <button
+              <Button
                 onClick={() => onPageChange(page)}
                 disabled={page === currentPage}
               >
                 {page}
-              </button>
+              </Button>
             </li>
           ))}
-        <li>
-          <button
+        <li className="next">
+          <Button
             onClick={() => onPageChange(currentPage + 1)}
             disabled={currentPage === pages}
           >
             Próxima
-          </button>
+          </Button>
         </li>
-        <button
-          onClick={() => onPageChange(pages)}
-          disabled={currentPage === pages}
-        >
-          Última
-        </button>
+        <li>
+          <Button
+            onClick={() => onPageChange(pages)}
+            disabled={currentPage === pages}
+          >
+            Última
+          </Button>
+        </li>
       </ul>
     </Container>
   );
