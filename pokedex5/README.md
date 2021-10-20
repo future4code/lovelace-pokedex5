@@ -54,3 +54,4 @@ Concluído
 #### Tela - Pokedex
 
 ![Screenshot from 2021-08-26 16-34-28](https://user-images.githubusercontent.com/8032317/131025007-9babe7df-e439-4060-a14d-d3a69a9177c6.png)
+
